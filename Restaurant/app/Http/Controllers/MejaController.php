@@ -29,7 +29,14 @@ class MejaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $val = $request -> validate([
+            'no_meja' => "required|numeric",
+            'jumlah_kursi' => "required|integer|between:1,8",
+            'jenis_meja' => "required",
+        ]);
+
+        Meja::create($val);
+        return redirect()->route('meja.index')->with('success', $val['no_meja'].' berhasil disimpan');
     }
 
     /**
@@ -45,7 +52,7 @@ class MejaController extends Controller
      */
     public function edit(Meja $meja)
     {
-        //
+        return view('meja.edit')->with('meja', $meja);
     }
 
     /**
@@ -53,14 +60,25 @@ class MejaController extends Controller
      */
     public function update(Request $request, Meja $meja)
     {
-        //
+        $val = $request -> validate([
+            'no_meja' => "required|numeric",
+            'jumlah_kursi' => "required|integer|between:1,8",
+            'jenis_meja' => "required",
+            'status_meja' => "required",
+        ]);
+
+        $meja -> update($val);
+        return redirect()->route('meja.index')->with('success', $val['no_meja'].' berhasil diupdate');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Meja $meja)
+    public function destroy($id)
     {
-        //
+        $meja = Meja::findOrFail($id);
+        $meja->delete();
+
+        return redirect()->route('meja.index')->with('success', 'Meja berhasil dihapus');
     }
 }

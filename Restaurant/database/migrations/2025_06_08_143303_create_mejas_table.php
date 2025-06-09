@@ -13,10 +13,10 @@ return new class extends Migration
     {
         Schema::create('mejas', function (Blueprint $table) {
             $table->id();
-            $table->string('no_meja');
-            $table->string('jumlah_kursi');
+            $table->integer('no_meja');
+            $table->integer('jumlah_kursi');
             $table->string('jenis_meja');
-            $table->string('status_meja');
+            $table->string('status_meja')->default('Kosong');
             $table->timestamps();
         });
     }
