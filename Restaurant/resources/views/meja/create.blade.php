@@ -42,14 +42,14 @@
 
                     <div class="mb-3">
                         <label for="jumlah_kursi" class="form-label">Jumlah Kursi</label>
-                        <input type="number" class="form-control" id="jumlah_kursi" name="jumlah_kursi" value="{{ old('jumlah_kursi') }}">
+                        <input type="number" class="form-control" id="jumlah_kursi" name="jumlah_kursi" value="{{ old('jumlah_kursi') }}" placeholder="Masukan Jumlah Kursi">
                         @error('jumlah_kursi')
                             <span class="text-danger">{{$message}}</span>
                         @enderror
                     </div>
                     <button type="submit" class="btn btn-primary">Submit</button>
+                    <a href="{{ url('meja') }}" class="btn btn-transparant"> Cancel </a>
                 </form>
-
             </div>
         </div>
     </div>

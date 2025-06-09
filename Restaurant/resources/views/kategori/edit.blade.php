@@ -21,8 +21,8 @@
                         @enderror
                     </div>
                     <button type="submit" class="btn btn-primary">Update</button>
+                    <a href="{{ url('kategori') }}" class="btn btn-transparant"> Cancel </a>
                 </form>
-
             </div>
         </div>
     </div>

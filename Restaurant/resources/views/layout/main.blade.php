@@ -8,6 +8,7 @@
   <title>@yield('title')</title>
   <link rel="shortcut icon" type="image/png" href="{{ url('assets/images/logos/favicon.png') }}" />
   <link rel="stylesheet" href="{{ url('assets/css/styles.min.css') }}" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-fEfM8kXAZhtbT2z0ZhGEeUebdj+HZ7cYf8ZknHJL+OJPfmD0i93C5Ob+RUvRz1ZbJ6gb7C5Q2UgfI2zkVZNbUQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
 <body>
@@ -18,14 +19,15 @@
     <aside class="left-sidebar">
       <!-- Sidebar scroll-->
       <div>
-        <div class="brand-logo d-flex align-items-center justify-content-between">
-          <a href="./index.html" class="text-nowrap logo-img">
-            <img src="{{ url('assets/images/logos/dark-logo.svg') }}" width="180" alt="" />
-          </a>
-          <div class="close-btn d-xl-none d-block sidebartoggler cursor-pointer" id="sidebarCollapse">
-            <i class="ti ti-x fs-8"></i>
-          </div>
+        <div class="brand-logo d-flex align-items-center justify-content-between p-3 border-bottom">
+            <a href="#" class="text-decoration-none text-dark">
+                <h2 class="m-0"><i class="me-2"></i>Restaurant</h2>
+            </a>
+            <button class="btn btn-sm d-xl-none d-block border-0 bg-transparent sidebartoggler" id="sidebarCollapse">
+                <i class="fas fa-times fs-4"></i>
+            </button>
         </div>
+
         <!-- Sidebar navigation-->
         <nav class="sidebar-nav scroll-sidebar" data-simplebar="">
           <ul id="sidebarnav">

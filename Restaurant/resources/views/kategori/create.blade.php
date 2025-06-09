@@ -14,12 +14,13 @@
                     @csrf
                     <div class="mb-3">
                         <label for="nama_kategori" class="form-label">Nama Kategori</label>
-                        <input type="text" id="nama_kategori" name="nama_kategori" class="form-control">
+                        <input type="text" id="nama_kategori" name="nama_kategori" class="form-control" placeholder="Masukan Nama Kategori">
                         @error('nama_kategori')
                             <span class="text-danger">{{$message}}</span>
                         @enderror
                     </div>
                     <button type="submit" class="btn btn-primary">Submit</button>
+                    <a href="{{ url('kategori') }}" class="btn btn-transparant"> Cancel </a>
                 </form>
             </div>
         </div>
