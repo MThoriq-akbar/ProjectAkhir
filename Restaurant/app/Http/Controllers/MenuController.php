@@ -42,18 +42,12 @@ class MenuController extends Controller
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
     public function edit(Menu $menu)
     {
         $kategori = Kategori::all();
         return view('menu.edit')->with('menu', $menu)->with('kategori', $kategori);
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
     public function update(Request $request, Menu $menu)
     {
         $val = $request -> validate([
@@ -68,9 +62,6 @@ class MenuController extends Controller
         return redirect()->route('menu.index')->with('success', $val['nama_menu'].' berhasil diperbarui');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
     public function destroy($id)
     {
         $menu = Menu::findOrFail($id);

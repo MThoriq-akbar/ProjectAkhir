@@ -47,22 +47,7 @@
               <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
               <span class="hide-menu">~ Restaurant ~</span>
             </li>
-            <li class="sidebar-item">
-              <a class="sidebar-link" href="{{ url('meja') }}" aria-expanded="false">
-                <span>
-                  <i class="ti ti-article"></i>
-                </span>
-                <span class="hide-menu">Meja</span>
-              </a>
-            </li>
-            <li class="sidebar-item">
-              <a class="sidebar-link" href="{{ url('kategori') }}" aria-expanded="false">
-                <span>
-                  <i class="ti ti-cards"></i>
-                </span>
-                <span class="hide-menu">Kategori</span>
-              </a>
-            </li>
+
             <li class="sidebar-item">
               <a class="sidebar-link" href="{{ url('menu') }}" aria-expanded="false">
                 <span>
@@ -71,20 +56,36 @@
                 <span class="hide-menu">Menu</span>
               </a>
             </li>
+
             <li class="sidebar-item">
-              <a class="sidebar-link" href="./ui-forms.html" aria-expanded="false">
+              <a class="sidebar-link" href="{{ url('meja') }}" aria-expanded="false">
                 <span>
-                  <i class="ti ti-file-description"></i>
+                  <i class="ti ti-article"></i>
                 </span>
-                <span class="hide-menu">Forms</span>
+                <span class="hide-menu">Meja</span>
               </a>
             </li>
+
             <li class="sidebar-item">
-              <a class="sidebar-link" href="./ui-typography.html" aria-expanded="false">
+              <a class="sidebar-link" href="{{ url('kategori') }}" aria-expanded="false">
                 <span>
-                  <i class="ti ti-typography"></i>
+                  <i class="ti ti-cards"></i>
                 </span>
-                <span class="hide-menu">Typography</span>
+                <span class="hide-menu">Kategori</span>
+              </a>
+            </li>
+
+            <li class="nav-small-cap">
+              <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
+              <span class="hide-menu">~ Pemesanan ~</span>
+            </li>
+
+             <li class="sidebar-item">
+              <a class="sidebar-link" href="{{ url('reservasi') }}" aria-expanded="false">
+                <span>
+                  <i class="ti ti-calendar"></i>
+                </span>
+                <span class="hide-menu">Reservasi</span>
               </a>
             </li>
             <li class="nav-small-cap">
