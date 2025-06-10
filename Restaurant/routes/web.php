@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\KasirController;
 use App\Http\Controllers\KategoriController;
 use App\Http\Controllers\MejaController;
 use App\Http\Controllers\MenuController;
@@ -15,3 +16,4 @@ Route::resource('meja', MejaController::class);
 Route::resource('kategori', KategoriController::class);
 Route::resource('menu', MenuController::class);
 Route::resource('reservasi', ReservasiController::class);
+Route::resource('kasir', KasirController::class);
