@@ -8,21 +8,25 @@
     <div class="card w-100">
         <div class="card-body p-4">
             <h5 class="card-title fw-semibold mb-4">Daftar Kategori</h5>
-            <a href="{{route('kategori.create')}}" class="btn btn-primary mt-2 mb-3">Tambah Kategori</a>
+            @can('create', App\Kategori::class)
+                <a href="{{route('kategori.create')}}" class="btn btn-primary mt-2 mb-3">Tambah Kategori</a>
+            @endcan
             <div class="table-responsive">
                 <table class="table text-nowrap mb-0 align-middle ">
                     <thead class="text-dark fs-4">
-                      <tr>
-                        <th class="border-bottom-0 text-center">
-                          <h6 class="fw-semibold mb-0">No</h6>
-                        </th>
-                        <th class="border-bottom-0 text-center">
-                          <h6 class="fw-semibold mb-0">Nama Kategori</h6>
-                        </th>
-                        <th class="border-bottom-0 text-center">
-                          <h6 class="fw-semibold mb-0">Aksi</h6>
-                        </th>
-                      </tr>
+                        <tr>
+                            <th class="border-bottom-0 text-center">
+                                <h6 class="fw-semibold mb-0">No</h6>
+                            </th>
+                            <th class="border-bottom-0 text-center">
+                                <h6 class="fw-semibold mb-0">Nama Kategori</h6>
+                            </th>
+                            @can('create', App\Kategori::class)
+                                <th class="border-bottom-0 text-center">
+                                <h6 class="fw-semibold mb-0">Aksi</h6>
+                                </th>
+                            @endcan
+                        </tr>
                     </thead>
                     <tbody>
                         @foreach ($kategori as $index => $item)
@@ -30,15 +34,19 @@
                             <td class="text-center">{{ $index + 1 }}</td>
                             <td class="text-center"v>{{ $item['nama_kategori'] }}</td>
                             <td class="text-center">
-                                <a href="{{route('kategori.edit', $item["id"])}}" class="btn btn-success">Edit</a>
-                                <form action="{{ route('kategori.destroy', $item['id']) }}" method="POST" class="d-inline" >
-                                    @csrf
-                                    @method('DELETE')
-                                    <button class="btn btn-danger col-lg-2 show_confirm" type="submit">Hapus</button>
-                                </form>
+                                @can('edit', App\Kategori::class)
+                                    <a href="{{route('kategori.edit', $item["id"])}}" class="btn btn-success">Edit</a>
+                                @endcan
+
+                                @can('delete', App\Kategori::class)
+                                    <form action="{{ route('kategori.destroy', $item['id']) }}" method="POST" class="d-inline" >
+                                        @csrf
+                                        @method('DELETE')
+                                        <button class="btn btn-danger col-lg-2 show_confirm" type="submit">Hapus</button>
+                                    </form>
+                                @endcan
                             </td>
                         </tr>
-
                         @endforeach
                     </tbody>
                 </table>
@@ -50,13 +58,13 @@
 <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 @if (session('success'))
-  <script>
-    Swal.fire({
-      title: "Good job!",
-      text: "{{session('success')}}",
-      icon: "success"
-    });
-  </script>
+    <script>
+        Swal.fire({
+            title: "Good job!",
+            text: "{{session('success')}}",
+            icon: "success"
+        });
+    </script>
 @endif
 
 <script type="text/javascript">

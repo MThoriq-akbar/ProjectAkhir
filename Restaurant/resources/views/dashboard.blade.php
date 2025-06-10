@@ -1,6 +1,6 @@
 @extends('layout.main')
 
-@section('title', 'Beranda')
+@section('title', 'Dashboard')
 
 @section('content')
 <x-app-layout>

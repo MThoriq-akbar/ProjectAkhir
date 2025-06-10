@@ -13,13 +13,20 @@ class MejaController extends Controller
         return view('meja.index')->with('meja',$meja);
     }
 
-    public function create()
+    public function create(Request $request)
     {
+        if ($request->user()->cannot('create', Meja::class)){
+            abort(403);
+        }
         return view('meja.create');
     }
 
     public function store(Request $request)
     {
+        if ($request->user()->cannot('store', Meja::class)){
+            abort(403);
+        }
+
         $val = $request -> validate([
             'no_meja' => "required|numeric",
             'jumlah_kursi' => "required|integer|between:1,8",
@@ -35,13 +42,19 @@ class MejaController extends Controller
         //
     }
 
-    public function edit(Meja $meja)
+    public function edit(Meja $meja,Request $request)
     {
+        if ($request->user()->cannot('edit', Meja::class)){
+            abort(403);
+        }
         return view('meja.edit')->with('meja', $meja);
     }
 
     public function update(Request $request, Meja $meja)
     {
+        if ($request->user()->cannot('update', Meja::class)){
+            abort(403);
+        }
         $val = $request -> validate([
             'no_meja' => "required|numeric",
             'jumlah_kursi' => "required|integer|between:1,8",

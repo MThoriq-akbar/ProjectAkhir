@@ -18,7 +18,9 @@
 <body>
     <div class="container">
         <h1 class="my-4 text-center">Menu Restaurant</h1>
-        <a href="{{ route('menu.create') }}" class="btn btn-primary col-lg-12">Tambah Menu</a>
+        @can('create', App\Menu::class)
+            <a href="{{ route('menu.create') }}" class="btn btn-primary col-lg-12">Tambah Menu</a>
+        @endcan
         <hr>
         <div class="row">
             @foreach ($menu as $item)
@@ -35,13 +37,17 @@
                             <hr>
                             <div class="text-center">
                                 <div class="d-flex justify-content-center gap-2">
-                                    <a href="{{ route('menu.edit', $item['id']) }}" class="btn btn-sm btn-success col-lg-3">Edit</a>
+                                    @can('edit', App\Menu::class)
+                                        <a href="{{ route('menu.edit', $item['id']) }}" class="btn btn-sm btn-success col-lg-3">Edit</a>
+                                    @endcan
 
-                                    <form action="{{ route('menu.destroy', $item['id']) }}" method="POST">
-                                        @method('DELETE')
-                                        @csrf
-                                        <button type="submit" class="btn btn-danger btn-sm show_confirm">Delete</button>
-                                    </form>
+                                    @can('delete', App\Menu::class)
+                                        <form action="{{ route('menu.destroy', $item['id']) }}" method="POST">
+                                            @method('DELETE')
+                                            @csrf
+                                            <button type="submit" class="btn btn-danger btn-sm show_confirm">Delete</button>
+                                        </form>
+                                    @endcan
                                 </div>
                             </div>
 

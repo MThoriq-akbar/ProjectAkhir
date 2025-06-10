@@ -8,7 +8,9 @@
     <div class="card w-100">
         <div class="card-body p-4">
             <h5 class="card-title fw-semibold mb-4">Daftar Pembayaran</h5>
-            <a href="{{route('pembayaran.create')}}" class="btn btn-primary mt-2 mb-3">Tambah Pembayaran</a>
+            @can('text', App\Pembayaran::class)
+                <a href="{{route('pembayaran.create')}}" class="btn btn-primary mt-2 mb-3">Tambah Pembayaran</a>
+            @endcan
             <div class="table-responsive">
                 <table class="table text-nowrap mb-0 align-middle ">
                     <thead class="text-dark fs-4">
@@ -34,9 +36,11 @@
                         <th class="border-bottom-0 text-center">
                           <h6 class="fw-semibold mb-0">Total</h6>
                         </th>
-                        <th class="border-bottom-0 text-center">
-                          <h6 class="fw-semibold mb-0">Aksi</h6>
-                        </th>
+                        @can('text', App\Pembayaran::class)
+                            <th class="border-bottom-0 text-center">
+                            <h6 class="fw-semibold mb-0">Aksi</h6>
+                            </th>
+                        @endcan
                       </tr>
                     </thead>
                     <tbody>
@@ -50,7 +54,9 @@
                             <td class="text-center">{{ $item['jumlah'] }}</td>
                             <td class="text-center">{{ $item['menu']['harga_menu'] * $item['jumlah'] }}</td>
                             <td class="text-center">
-                                <a href="{{route('pembayaran.edit', $item["id"])}}" class="btn btn-success">Edit</a>
+                                @can('edit', App\Pembayaran::class)
+                                    <a href="{{route('pembayaran.edit', $item["id"])}}" class="btn btn-success">Edit</a>
+                                @endcan
                             </td>
                         </tr>
                         @endforeach

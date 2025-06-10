@@ -52,19 +52,20 @@
                                 <span class="text-danger">{{ $message }}</span>
                             @enderror
                         </div>
-
-                        <div class="mb-3">
-                            <label for="status" class="form-label">Status</label>
-                            <select name="status" id="status" class="form-control">
-                                <option value="Pending" {{ $reservasi->status == 'Pending' ? 'selected' : '' }}>Pending</option>
-                                <option value="Dikonfirmasi" {{ $reservasi->status == 'Dikonfirmasi' ? 'selected' : '' }}>Dikonfirmasi</option>
-                                <option value="Selesai" {{ $reservasi->status == 'Selesai' ? 'selected' : '' }}>Selesai</option>
-                                <option value="Batal" {{ $reservasi->status == 'Batal' ? 'selected' : '' }}>Batal</option>
-                            </select>
-                            @error('status')
-                                <span class="text-danger">{{ $message }}</span>
-                            @enderror
-                        </div>
+                        @can('text', App\Reservasi::class)
+                            <div class="mb-3">
+                                <label for="status" class="form-label">Status</label>
+                                <select name="status" id="status" class="form-control">
+                                    <option value="Pending" {{ $reservasi->status == 'Pending' ? 'selected' : '' }}>Pending</option>
+                                    <option value="Dikonfirmasi" {{ $reservasi->status == 'Dikonfirmasi' ? 'selected' : '' }}>Dikonfirmasi</option>
+                                    <option value="Selesai" {{ $reservasi->status == 'Selesai' ? 'selected' : '' }}>Selesai</option>
+                                    <option value="Batal" {{ $reservasi->status == 'Batal' ? 'selected' : '' }}>Batal</option>
+                                </select>
+                                @error('status')
+                                    <span class="text-danger">{{ $message }}</span>
+                                @enderror
+                            </div>
+                        @endcan
 
                         <button type="submit" class="btn btn-primary">Update</button>
                         <a href="{{ url('reservasi') }}" class="btn btn-secondary">Batal</a>

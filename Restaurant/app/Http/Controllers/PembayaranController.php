@@ -22,8 +22,11 @@ class PembayaranController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function create(Request $request)
     {
+        if ($request->user()->cannot('create', Reservasi::class)){
+            abort(403);
+        }
         $reservasi = Reservasi::all();
         $kasir = Kasir::all();
         $menu = Menu::all();
@@ -36,6 +39,9 @@ class PembayaranController extends Controller
      */
     public function store(Request $request)
     {
+        if ($request->user()->cannot('store', Reservasi::class)){
+            abort(403);
+        }
         $val = $request -> validate([
             'reservasi_id'  => 'required',
             'kasir_id'      => 'required',
@@ -60,8 +66,11 @@ class PembayaranController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Pembayaran $pembayaran)
+    public function edit(Pembayaran $pembayaran, Request $request)
     {
+        if ($request->user()->cannot('edit', Reservasi::class)){
+            abort(403);
+        }
         $reservasi = Reservasi::all();
         $kasir = Kasir::all();
         $menu = Menu::all();
@@ -74,6 +83,9 @@ class PembayaranController extends Controller
      */
     public function update(Request $request, Pembayaran $pembayaran)
     {
+        if ($request->user()->cannot('update', Reservasi::class)){
+            abort(403);
+        }
         $val = $request -> validate([
             'reservasi_id'  => 'required',
             'kasir_id'      => 'required',

@@ -19,6 +19,7 @@ class ReservasiController extends Controller
         $meja = Meja::all();
         return view('reservasi.create')->with('meja', $meja);
     }
+    
     function store(Request $request)
     {
         $val = $request -> validate([
@@ -50,7 +51,7 @@ class ReservasiController extends Controller
             'nama_pemesan' => 'required',
             'nohp' => 'required',
             'tanggal' => 'required|date',
-            'status' => 'required'
+            'status' => 'nullable'
         ]);
 
         $reservasi = Reservasi::findOrFail($id);

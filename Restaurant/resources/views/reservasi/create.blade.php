@@ -43,7 +43,7 @@
                             <span class="text-danger">{{ $message }}</span>
                         @enderror
                     </div>
-
+                    
                     <div class="mb-3">
                         <label for="tanggal" class="form-label">Tanggal Reservasi</label>
                         <input type="date" class="form-control" id="tanggal" name="tanggal" value="{{ old('tanggal') }}">

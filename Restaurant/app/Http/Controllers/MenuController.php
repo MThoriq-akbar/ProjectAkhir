@@ -17,14 +17,20 @@ class MenuController extends Controller
         return view('menu.index')->with('menu', $menu);
     }
 
-    public function create()
+    public function create(Request $request)
     {
+        if ($request->user()->cannot('create', Menu::class)){
+            abort(403);
+        }
         $kategori = Kategori::all();
         return view('menu.create')->with('kategori', $kategori);
     }
 
     public function store(Request $request)
     {
+        if ($request->user()->cannot('store', Menu::class)){
+            abort(403);
+        }
         $val = $request -> validate([
             'kategori_id' => "required",
             'kode_menu' => "required|max:25",
@@ -42,14 +48,20 @@ class MenuController extends Controller
         //
     }
 
-    public function edit(Menu $menu)
+    public function edit(Menu $menu, Request $request)
     {
+        if ($request->user()->cannot('edit', Menu::class)){
+            abort(403);
+        }
         $kategori = Kategori::all();
         return view('menu.edit')->with('menu', $menu)->with('kategori', $kategori);
     }
 
     public function update(Request $request, Menu $menu)
     {
+        if ($request->user()->cannot('update', Menu::class)){
+            abort(403);
+        }
         $val = $request -> validate([
             'kategori_id' => "required",
             'kode_menu' => "required|max:25",

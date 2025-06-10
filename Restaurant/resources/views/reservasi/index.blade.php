@@ -47,11 +47,13 @@
                             <td class="text-center">{{ $item['status'] }}</td>
                             <td class="text-center">
                                 <a href="{{route('reservasi.edit', $item["id"])}}" class="btn btn-success">Edit</a>
-                                <form action="{{ route('reservasi.destroy', $item['id']) }}" method="POST" class="d-inline" onsubmit="return confirm('Yakin hapus meja ini?')">
-                                    @csrf
-                                    @method('DELETE')
-                                    <button class="btn btn-danger col-lg-5" type="submit">Hapus</button>
-                                </form>
+                                @can('delete', App\Reservasi::class)
+                                    <form action="{{ route('reservasi.destroy', $item['id']) }}" method="POST" class="d-inline" onsubmit="return confirm('Yakin hapus meja ini?')">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button class="btn btn-danger col-lg-5" type="submit">Hapus</button>
+                                    </form>
+                                @endcan
                             </td>
                         </tr>
                         @endforeach

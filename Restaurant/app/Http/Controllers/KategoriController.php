@@ -19,8 +19,11 @@ class KategoriController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function create(Request $request)
     {
+        if ($request->user()->cannot('create', Kategori::class)){
+            abort(403);
+        }
         return view('kategori.create');
     }
 
@@ -29,6 +32,9 @@ class KategoriController extends Controller
      */
     public function store(Request $request)
     {
+        if ($request->user()->cannot('store', Kategori::class)){
+            abort(403);
+        }
         $val = $request -> validate([
             'nama_kategori' => "required",
         ]);
@@ -48,8 +54,11 @@ class KategoriController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Kategori $kategori)
+    public function edit(Kategori $kategori,Request $request)
     {
+        if ($request->user()->cannot('edit', Kategori::class)){
+            abort(403);
+        }
         return view('kategori.edit')->with('kategori', $kategori);
     }
 
@@ -58,6 +67,9 @@ class KategoriController extends Controller
      */
     public function update(Request $request, Kategori $kategori)
     {
+        if ($request->user()->cannot('update', Kategori::class)){
+            abort(403);
+        }
         $val = $request -> validate([
             'nama_kategori' => "required",
         ]);
