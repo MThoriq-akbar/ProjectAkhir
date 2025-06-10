@@ -75,26 +75,34 @@
                 </a>
                 </li>
                 <li class="sidebar-item">
-                <a class="sidebar-link" href="{{ url('kasir') }}" aria-expanded="false">
-                    <span>
-                    <i class="ti ti-user"></i>
-                    </span>
-                    <span class="hide-menu">Kasir</span>
-                </a>
+                    <a class="sidebar-link" href="{{ url('kasir') }}" aria-expanded="false">
+                        <span>
+                        <i class="ti ti-user"></i>
+                        </span>
+                        <span class="hide-menu">Kasir</span>
+                    </a>
                 </li>
 
                 <li class="nav-small-cap">
-                <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
-                <span class="hide-menu">~ Pemesanan ~</span>
+                    <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
+                    <span class="hide-menu">~ Pemesanan ~</span>
                 </li>
 
                 <li class="sidebar-item">
-                <a class="sidebar-link" href="{{ url('reservasi') }}" aria-expanded="false">
-                    <span>
-                    <i class="ti ti-calendar"></i>
-                    </span>
-                    <span class="hide-menu">Reservasi</span>
-                </a>
+                    <a class="sidebar-link" href="{{ url('reservasi') }}" aria-expanded="false">
+                        <span>
+                        <i class="ti ti-calendar"></i>
+                        </span>
+                        <span class="hide-menu">Reservasi</span>
+                    </a>
+                </li>
+                <li class="sidebar-item">
+                    <a class="sidebar-link" href="{{ url('pembayaran') }}" aria-expanded="false">
+                        <span>
+                            <i class="ti ti-address-book"></i>
+                        </span>
+                        <span class="hide-menu">Pembayaran</span>
+                    </a>
                 </li>
             </ul>
         </nav>

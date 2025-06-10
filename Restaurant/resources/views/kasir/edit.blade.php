@@ -1,28 +1,42 @@
 @extends('layout.main')
 
-@section('title','Edit Kasir')
+@section('title', 'Edit Kasir')
 
 @section('content')
+
 <div class="container-fluid">
-    <div class="card">
-        <div class="card-body">
-            <h5 class="card-title fw-semibold mb-4">Form Edit Kasir</h5>
-            <div class="card">
-                <div class="card-body">
-                    <form method="POST" action="{{ route('kasir.update', $kasir['id']) }}">
-                        @csrf
-                        @method('PUT')
-                        <div class="mb-3">
-                            <label for="nama_kategori" class="form-label">Nama Kategori</label>
-                            <input type="text" class="form-control" id="nama_kategori" name="nama_kategori" value="{{ old('nama_kategori', $kategori['nama_kategori']) }}">
-                            @error('nama_kategori')
-                                <span class="text-danger">{{$message}}</span>
-                            @enderror
-                        </div>
-                        <button type="submit" class="btn btn-primary">Update</button>
-                        <a href="{{ url('kategori') }}" class="btn btn-transparant"> Cancel </a>
-                    </form>
-                </div>
+<div class="card">
+    <div class="card-body">
+        <h5 class="card-title fw-semibold mb-4">Form Edit Kasir</h5>
+        <div class="card">
+            <div class="card-body">
+                <form method="POST" action="{{ route('kasir.update', $kasir['id']) }}">
+                    @csrf
+                    @method('PUT')
+                    <div class="mb-3">
+                        <label for="no_kasir" class="form-label">No Kasir</label>
+                        <input type="number" id="no_kasir" name="no_kasir" class="form-control" value="{{ old('no_kasir', $kasir->no_kasir) }}" placeholder="Masukan Nomor Kasir">
+                        @error('no_kasir')
+                            <span class="text-danger">{{ $message }}</span>
+                        @enderror
+                    </div>
+                    <div class="mb-3">
+                        <label for="nama_kasir" class="form-label">Nama Kasir</label>
+                        <input type="text" id="nama_kasir" name="nama_kasir" class="form-control" value="{{ old('nama_kasir', $kasir->nama_kasir) }}" placeholder="Masukan Nama Kasir">
+                        @error('nama_kasir')
+                            <span class="text-danger">{{ $message }}</span>
+                        @enderror
+                    </div>
+                    <div class="mb-3">
+                        <label for="nohp" class="form-label">No Telepon</label>
+                        <input type="number" id="nohp" name="nohp" class="form-control" value="{{ old('nohp', $kasir->nohp) }}" placeholder="Masukan No Telepon Kasir">
+                        @error('nohp')
+                            <span class="text-danger">{{ $message }}</span>
+                        @enderror
+                    </div>
+                    <button type="submit" class="btn btn-primary">Update</button>
+                    <a href="{{ route('kasir.index') }}" class="btn btn-transparant">Cancel</a>
+                </form>
             </div>
         </div>
     </div>

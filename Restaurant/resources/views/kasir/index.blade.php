@@ -14,9 +14,6 @@
                     <thead class="text-dark fs-4">
                       <tr>
                         <th class="border-bottom-0 text-center">
-                          <h6 class="fw-semibold mb-0">No</h6>
-                        </th>
-                        <th class="border-bottom-0 text-center">
                           <h6 class="fw-semibold mb-0">No Kasir</h6>
                         </th>
                         <th class="border-bottom-0 text-center">
