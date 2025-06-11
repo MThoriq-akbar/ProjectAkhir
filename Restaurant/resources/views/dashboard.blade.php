@@ -3,21 +3,24 @@
 @section('title', 'Dashboard')
 
 @section('content')
-<x-app-layout>
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Dashboard') }}
-        </h2>
-    </x-slot>
 
-    <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                <div class="p-6 text-gray-900">
-                    {{ __("You're logged in!") }}
-                </div>
-            </div>
+<h1> Dashboard</h1>
+
+    <div style="display: flex; gap: 2rem; justify-content: center;">
+        <div style="padding: 1rem; border: 1px solid #ccc; border-radius: 8px; width: 300px; text-align: center;">
+            <h2>Jumlah Menu</h2>
+            <p style="font-size: 2rem; font-weight: bold;">{{ $jumlahMenu }}</p>
+        </div>
+
+        <div style="padding: 1rem; border: 1px solid #ccc; border-radius: 8px; width: 300px; text-align: center;">
+            <h2>Jumlah Meja</h2>
+            <p style="font-size: 2rem; font-weight: bold;">{{ $jumlahMeja }}</p>
+        </div>
+
+        <div style="padding: 1rem; border: 1px solid #ccc; border-radius: 8px; width: 300px; text-align: center;">
+            <h2>Jumlah Pembayaran</h2>
+            <p style="font-size: 2rem; font-weight: bold;">{{ $jumlahPembayaran }}</p>
         </div>
     </div>
-</x-app-layout>
+
 @endsection
