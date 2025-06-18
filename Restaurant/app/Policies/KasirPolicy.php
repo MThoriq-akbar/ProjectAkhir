@@ -36,6 +36,15 @@ class KasirPolicy
         return $user->role === 'A';
     }
 
+    public function store(User $user): bool
+    {
+        return $user->role === 'A';
+    }
+
+    public function edit(User $user): bool
+    {
+        return $user->role === 'A';
+    }
     /**
      * Determine whether the user can update the model.
      */
